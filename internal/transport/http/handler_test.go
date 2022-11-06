@@ -59,7 +59,7 @@ func TestCompanyAPIPositive(t *testing.T) {
 		payload, err := json.Marshal(createRequest)
 		assert.NoError(t, err)
 		req := httptest.NewRequest("POST", uri, bytes.NewBuffer(payload))
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 
 		resp := execReq(req)
@@ -92,7 +92,7 @@ func TestCompanyAPIPositive(t *testing.T) {
 		payload, err := json.Marshal(updateRequest)
 		assert.NoError(t, err)
 		req := httptest.NewRequest("PATCH", uri, bytes.NewBuffer(payload))
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 
 		resp := execReq(req)
@@ -107,7 +107,7 @@ func TestCompanyAPIPositive(t *testing.T) {
 	t.Run("test delete company by id api", func(t *testing.T) {
 		uri := fmt.Sprintf("/api/v1/private/company/delete/%s", id)
 		req := httptest.NewRequest("DELETE", uri, nil)
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 		resp := execReq(req)
 		assert.Equal(t, http.StatusNoContent, resp.Result().StatusCode)
@@ -135,7 +135,7 @@ func TestCompanyAPINegative(t *testing.T) {
 		payload, err := json.Marshal(createRequest)
 		assert.NoError(t, err)
 		req := httptest.NewRequest("POST", uri, bytes.NewBuffer(payload))
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 
 		resp := execReq(req)
@@ -152,7 +152,7 @@ func TestCompanyAPINegative(t *testing.T) {
 		payload, err := json.Marshal(createRequest)
 		assert.NoError(t, err)
 		req := httptest.NewRequest("POST", uri, bytes.NewBuffer(payload))
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 
 		resp := execReq(req)
@@ -169,7 +169,7 @@ func TestCompanyAPINegative(t *testing.T) {
 		payload, err := json.Marshal(createRequest)
 		assert.NoError(t, err)
 		req := httptest.NewRequest("POST", uri, bytes.NewBuffer(payload))
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 
 		resp := execReq(req)
@@ -186,7 +186,7 @@ func TestCompanyAPINegative(t *testing.T) {
 		randomId := uuid.NewString()
 		uri := fmt.Sprintf("/api/v1/private/company/delete/%s", randomId)
 		req := httptest.NewRequest("DELETE", uri, nil)
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 		resp := execReq(req)
 		assert.Equal(t, http.StatusNoContent, resp.Result().StatusCode)
@@ -212,7 +212,7 @@ func TestCompanyAPIPayload(t *testing.T) {
 			"is_registered": true
 		  }`)
 		req := httptest.NewRequest("POST", uri, wrong_json_payload)
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 		resp := execReq(req)
 		assert.Equal(t, http.StatusBadRequest, resp.Result().StatusCode)
@@ -224,7 +224,7 @@ func TestCompanyAPIPayload(t *testing.T) {
 			"name": "Evil Corp",
 			"is_registered": true`)
 		req := httptest.NewRequest("PATCH", uri, wrong_json_payload)
-		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyb21zYWJiaXJAZ21haWwuY29tIn0.8AU_SUG3pTqf0HgXjYpdtlJwG69kwCOWuVIbVvVAD8E")
+		req.Header.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.aPo_C9u29lF0od_vU1V4Oox-OkVZGZMjKA2m_Wpn-D4")
 		req.Header.Add("Content-Type", "application/json")
 		resp := execReq(req)
 		assert.Equal(t, http.StatusBadRequest, resp.Result().StatusCode)
