@@ -4,7 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"log"
+	"net"
 	"net/http"
+	"net/netip"
 	"os"
 	"os/signal"
 	"time"
@@ -69,7 +71,39 @@ func (h *Handler) Serve() error {
 }
 
 func healthCheck(w http.ResponseWriter, r *http.Request) {
+
+	podIp := ""
+	ifaces, err := net.Interfaces()
+	if err != nil {
+		json.NewEncoder(w).Encode(map[string]string{
+			"status": "ok!",
+			"ips":    "nil",
+		})
+	}
+
+	for _, i := range ifaces {
+		addrs, err := i.Addrs()
+		if err != nil {
+			log.Println("could not get address from iface")
+			continue
+		}
+		for _, addr := range addrs {
+			ip := addr.(*net.IPNet).IP.String()
+			netIp, err := netip.ParseAddr(ip)
+			if err != nil {
+				log.Println("could not parse ip")
+				continue
+			}
+			calico_cidr_block, _ := netip.ParsePrefix("192.168.0.0/16")
+
+			if calico_cidr_block.Contains(netIp) {
+				podIp = netIp.String()
+			}
+			// process IP address
+		}
+	}
 	json.NewEncoder(w).Encode(map[string]string{
 		"status": "ok!",
+		"podIp":  podIp,
 	})
 }
