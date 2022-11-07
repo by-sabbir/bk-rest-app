@@ -1,0 +1,7 @@
+- hosts: cp
+  become: no
+
+  tasks:
+  - name: rolling upate
+    ansible.builtin.shell:
+      cmd: kubectl rollout restart deploy bk-app
