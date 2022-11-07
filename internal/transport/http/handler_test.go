@@ -30,7 +30,7 @@ func RandStringBytes(n int) string {
 }
 
 func TestCompanyAPIPositive(t *testing.T) {
-	t.Setenv("DB_HOST", "127.0.0.1")
+	t.Setenv("DB_HOST", "0.0.0.0")
 	t.Setenv("DB_PORT", "5433")
 	t.Setenv("DB_USERNAME", "bktest")
 	t.Setenv("DB_PASSWORD", "hello")
@@ -114,7 +114,7 @@ func TestCompanyAPIPositive(t *testing.T) {
 	})
 }
 func TestCompanyAPINegative(t *testing.T) {
-	t.Setenv("DB_HOST", "127.0.0.1")
+	t.Setenv("DB_HOST", "0.0.0.0")
 	t.Setenv("DB_PORT", "5433")
 	t.Setenv("DB_USERNAME", "bktest")
 	t.Setenv("DB_PASSWORD", "hello")
@@ -194,7 +194,7 @@ func TestCompanyAPINegative(t *testing.T) {
 }
 
 func TestCompanyAPIPayload(t *testing.T) {
-	t.Setenv("DB_HOST", "127.0.0.1")
+	t.Setenv("DB_HOST", "0.0.0.0")
 	t.Setenv("DB_PORT", "5433")
 	t.Setenv("DB_USERNAME", "bktest")
 	t.Setenv("DB_PASSWORD", "hello")
@@ -233,7 +233,7 @@ func TestCompanyAPIPayload(t *testing.T) {
 }
 
 func TestCompanyAPIWithoutToken(t *testing.T) {
-	t.Setenv("DB_HOST", "127.0.0.1")
+	t.Setenv("DB_HOST", "0.0.0.0")
 	t.Setenv("DB_PORT", "5433")
 	t.Setenv("DB_USERNAME", "bktest")
 	t.Setenv("DB_PASSWORD", "hello")
