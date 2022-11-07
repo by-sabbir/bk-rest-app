@@ -13,7 +13,7 @@ node {
             sh "make test"
         }
         stage ('Build Image and Publish'){
-            sh "make build"
+            sh "make publish"
         }
     }
     finally {
