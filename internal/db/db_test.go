@@ -22,7 +22,7 @@ func RandStringBytes(n int) string {
 }
 
 func TestCompanyDB(t *testing.T) {
-	t.Setenv("DB_HOST", "127.0.0.1")
+	t.Setenv("DB_HOST", "0.0.0.0")
 	t.Setenv("DB_PORT", "5433")
 	t.Setenv("DB_USERNAME", "bktest")
 	t.Setenv("DB_PASSWORD", "hello")
