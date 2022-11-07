@@ -29,7 +29,7 @@ logout:
 
 report:
 	docker compose up -d testdb && \
-	sleep 5 && \
+	sleep 10 && \
 	go test -coverprofile=coverage.out ./... && \
 	gocover-cobertura < coverage.out > coverage.xml && \
 	docker compose stop testdb && \
