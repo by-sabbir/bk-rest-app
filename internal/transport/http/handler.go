@@ -102,8 +102,10 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 			// process IP address
 		}
 	}
+	host, _ := os.Hostname()
 	json.NewEncoder(w).Encode(map[string]string{
-		"status": "ok!",
-		"podIp":  podIp,
+		"status":  "ok!",
+		"podIp":   podIp,
+		"podName": host,
 	})
 }
