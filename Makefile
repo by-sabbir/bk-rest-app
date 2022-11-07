@@ -1,5 +1,7 @@
 .PHONY:
 
+DOCKER_REGISTRY ?= registry.sabbir.dev
+
 get-deps:
 	go mod tidy
 
@@ -18,3 +20,9 @@ logs:
 
 cleanup:
 	docker compose down -v
+
+login:
+	docker login -u $$DOCKER_USER -p $$DOCKER_PASSWORD $(DOCKER_REGISTRY)
+
+logout:
+	docker logout $(DOCKER_REGISTRY)
