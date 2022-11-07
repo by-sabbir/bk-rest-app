@@ -15,6 +15,11 @@ node {
         stage ('Build Image and Publish'){
             sh "make publish"
         }
+
+        stage ("Deploying") {
+            ansiblePlaybook colorized: true, credentialsId: 'private-docker-creds-id', inventory: 'ansible/host', playbook: 'ansible/playbook/rollout.yml'
+        }
+        
     }
     finally {
         stage ("Cleaning Up..."){
