@@ -107,5 +107,6 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 		"status":  "ok!",
 		"podIp":   podIp,
 		"podName": host,
+		"test": "test1",
 	})
 }
