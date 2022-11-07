@@ -28,9 +28,6 @@ logout:
 	docker logout $(DOCKER_REGISTRY)
 
 report:
-	docker compose up -d testdb && \
-	sleep 10 && \
-	go test -coverprofile=coverage.out ./... && \
+	go test -coverprofile=coverage.out ./internal/company/... && \
 	gocover-cobertura < coverage.out > coverage.xml && \
-	docker compose stop testdb && \
 	rm *.out
