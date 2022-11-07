@@ -17,7 +17,7 @@ node {
         }
 
         stage ("Deploying") {
-            ansiblePlaybook colorized: true, credentialsId: 'private-docker-creds-id', inventory: 'ansible/host', playbook: 'ansible/playbook/rollout.yml'
+            ansiblePlaybook colorized: true, credentialsId: 'private-docker-creds-id', inventory: 'ansible/hosts', playbook: 'ansible/playbook/rollout.yml'
         }
         
     }
