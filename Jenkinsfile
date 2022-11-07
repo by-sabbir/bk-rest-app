@@ -9,6 +9,12 @@ node {
                 sh "make login" // sh "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"-1001556850823\", \"text\": \"Started ${JOB_BASE_NAME}_${JOB_NAME}- ${BUILD_URL}\", \"disable_notification\": false}' https://api.telegram.org/bot1750146504:AAE5lT-GQNVtEF48xQwH3IvecZa8WrytYY8/sendMessage"
             }
         }
+        stage ('Unit Test') {
+            sh "make test"
+        }
+        stage ('Build Image and Publish'){
+            sh "make build"
+        }
     }
     finally {
         stage ("Cleaning Up..."){

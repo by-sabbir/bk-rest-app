@@ -6,14 +6,14 @@ get-deps:
 	go mod tidy
 
 test:
-	docker compose up -d testdb && sleep 3 && \
-	go test -coverprofile cover.out ./... -v -cover
+	go test -coverprofile=coverage.out ./internal/company/... -v -cover
 
 show-coverage:
-	go tool cover -html=cover.out
+	go tool cover -html=coverage.out
 
-up:
-	docker compose up -d --build api
+publish:
+	docker compose build api && \
+	docker compose push api
 
 logs:
 	docker compose logs -f api
@@ -28,6 +28,5 @@ logout:
 	docker logout $(DOCKER_REGISTRY)
 
 report:
-	go test -coverprofile=coverage.out ./internal/company/... && \
 	gocover-cobertura < coverage.out > coverage.xml && \
 	rm *.out
