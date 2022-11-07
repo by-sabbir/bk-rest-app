@@ -26,3 +26,11 @@ login:
 
 logout:
 	docker logout $(DOCKER_REGISTRY)
+
+report:
+	docker compose up -d testdb && \
+	sleep 5 && \
+	go test -coverprofile=coverage.out ./... && \
+	gocover-cobertura < coverage.out > coverage.xml && \
+	docker compose stop testdb && \
+	rm *.out
