@@ -27,6 +27,6 @@ go.work
 ### Go Patch ###
 /vendor/
 /Godeps/
-
+reports/
 # End of https://www.toptal.com/developers/gitignore/api/go
 n

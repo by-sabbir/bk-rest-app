@@ -30,3 +30,7 @@ logout:
 report:
 	gocover-cobertura < coverage.out > coverage.xml && \
 	rm *.out
+
+reporthtml:
+	mkdir -p reports && \
+	go tool cover -html coverage.out -o reports/index.html
