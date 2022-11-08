@@ -18,7 +18,7 @@ node {
         stage ("Deploying") {
             withCheckout(scm) {
                 echo "GIT_COMMIT is ${env.GIT_COMMIT}"
-                ansiblePlaybook extras: 'url=${env.GIT_COMMIT}', inventory: 'ansible/hosts', playbook: 'ansible/playbook/rollout.yaml'
+                ansiblePlaybook extras: 'commitId=${env.GIT_COMMIT}', inventory: 'ansible/hosts', playbook: 'ansible/playbook/rollout.yaml'
             }
         }
   

@@ -8,4 +8,4 @@
 
   - name: changing cause
     ansible.builtin.shell:
-      cmd: kubectl annotate deployments bk-app kubernetes.io/change-cause="{{url}}"
+      cmd: kubectl annotate deployments bk-app kubernetes.io/change-cause="{{commitId}}"
