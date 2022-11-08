@@ -16,9 +16,12 @@ node {
         }
 
         stage ("Deploying") {
-            ansiblePlaybook colorized: true, credentialsId: 'private-docker-creds-id', inventory: 'ansible/hosts', playbook: 'ansible/playbook/rollout.yaml'
+            withCheckout(scm) {
+                echo "GIT_COMMIT is ${env.GIT_COMMIT}"
+                ansiblePlaybook extras: 'url=${env.GIT_COMMIT}', inventory: 'ansible/hosts', playbook: 'ansible/playbook/rollout.yaml'
+            }
         }
-        
+  
     }
     finally {
         stage ("Cleaning Up..."){
