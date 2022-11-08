@@ -18,7 +18,7 @@ node {
         stage ("Deploying") {
             shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
             echo "GIT_COMMIT is ${shortCommit}"
-            ansiblePlaybook extras: 'commitId=${shortCommit}', inventory: 'ansible/hosts', playbook: 'ansible/playbook/rollout.yaml'
+            ansiblePlaybook extras: '-e commitId=${shortCommit}', inventory: 'ansible/hosts', playbook: 'ansible/playbook/rollout.yaml'
         }
   
     }
