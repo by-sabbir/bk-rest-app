@@ -28,7 +28,7 @@ node {
         }
 
         stage ("report") {
-            sh 'make report'
+            sh 'make reporthtml'
             publishHTML (target : [allowMissing: true,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
