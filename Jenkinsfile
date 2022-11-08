@@ -1,12 +1,11 @@
 node {
-    // git credentialsId: 'private-key', url: 'git@github.com:by-sabbir/django-docker-jenkins.git'
     checkout scm
     try {
 
         stage ('Initializing Docker Repo') {
             withEnv(["DOCKER_USER=${DOCKER_USER}",
                      "DOCKER_PASSWORD=${DOCKER_PASSWORD}"]) {
-                sh "make login" // sh "curl -X POST -H 'Content-Type: application/json' -d '{\"chat_id\": \"-1001556850823\", \"text\": \"Started ${JOB_BASE_NAME}_${JOB_NAME}- ${BUILD_URL}\", \"disable_notification\": false}' https://api.telegram.org/bot1750146504:AAE5lT-GQNVtEF48xQwH3IvecZa8WrytYY8/sendMessage"
+                sh "make login"
             }
         }
         stage ('Unit Test') {
