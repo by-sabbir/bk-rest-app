@@ -83,28 +83,28 @@ func TestCompanyService(t *testing.T) {
 		assert.NoError(t, err)
 	})
 
-	t.Run("test partial update company by id", func(t *testing.T) {
-		companyStoreMock := NewMockStore(mockCtrl)
+	// t.Run("test partial update company by id", func(t *testing.T) {
+	// 	companyStoreMock := NewMockStore(mockCtrl)
 
-		company := Company{
-			ID:             "431A5349-5277-4E34-A71B-CE764398A261",
-			Name:           "ACME Corp",
-			TotalEmployees: 100,
-			IsRegistered:   true,
-			Type:           CompanyType[0],
-		}
-		ctx := context.Background()
-		companyStoreMock.
-			EXPECT().
-			PartialUpdateCompany(ctx, company.ID, company).Return(company, nil)
+	// 	company := Company{
+	// 		ID:             "431A5349-5277-4E34-A71B-CE764398A261",
+	// 		Name:           "ACME Corp",
+	// 		TotalEmployees: 100,
+	// 		IsRegistered:   true,
+	// 		Type:           CompanyType[0],
+	// 	}
+	// 	ctx := context.Background()
+	// 	companyStoreMock.
+	// 		EXPECT().
+	// 		PartialUpdateCompany(ctx, company.ID, company).Return(company, nil)
 
-		companyService := NewService(companyStoreMock)
+	// 	companyService := NewService(companyStoreMock)
 
-		got, err := companyService.PartialUpdateCompany(ctx, company.ID, company)
+	// 	got, err := companyService.PartialUpdateCompany(ctx, company.ID, company)
 
-		assert.NoError(t, err)
-		assert.Equal(t, company, got)
-	})
+	// 	assert.NoError(t, err)
+	// 	assert.Equal(t, company, got)
+	// })
 
 }
 
