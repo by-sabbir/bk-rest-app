@@ -76,7 +76,7 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 	ifaces, err := net.Interfaces()
 	if err != nil {
 		json.NewEncoder(w).Encode(map[string]string{
-			"status": "ok!",
+			"status": "running",
 			"ips":    "nil",
 		})
 	}
