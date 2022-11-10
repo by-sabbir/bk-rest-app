@@ -83,57 +83,57 @@ func TestCompanyService(t *testing.T) {
 		assert.NoError(t, err)
 	})
 
-	// t.Run("test partial update company by id", func(t *testing.T) {
-	// 	companyStoreMock := NewMockStore(mockCtrl)
+	t.Run("test partial update company by id", func(t *testing.T) {
+		companyStoreMock := NewMockStore(mockCtrl)
 
-	// 	company := Company{
-	// 		ID:             "431A5349-5277-4E34-A71B-CE764398A261",
-	// 		Name:           "ACME Corp",
-	// 		TotalEmployees: 100,
-	// 		IsRegistered:   true,
-	// 		Type:           CompanyType[0],
-	// 	}
-	// 	ctx := context.Background()
-	// 	companyStoreMock.
-	// 		EXPECT().
-	// 		PartialUpdateCompany(ctx, company.ID, company).Return(company, nil)
+		company := Company{
+			ID:             "431A5349-5277-4E34-A71B-CE764398A261",
+			Name:           "ACME Corp",
+			TotalEmployees: 100,
+			IsRegistered:   true,
+			Type:           CompanyType[0],
+		}
+		ctx := context.Background()
+		companyStoreMock.
+			EXPECT().
+			PartialUpdateCompany(ctx, company.ID, company).Return(company, nil)
 
-	// 	companyService := NewService(companyStoreMock)
+		companyService := NewService(companyStoreMock)
 
-	// 	got, err := companyService.PartialUpdateCompany(ctx, company.ID, company)
+		got, err := companyService.PartialUpdateCompany(ctx, company.ID, company)
 
-	// 	assert.NoError(t, err)
-	// 	assert.Equal(t, company, got)
-	// })
+		assert.NoError(t, err)
+		assert.Equal(t, company, got)
+	})
 
 }
 
-// func TestScanType(t *testing.T) {
+func TestScanType(t *testing.T) {
 
-// 	t.Run("test company type exist", func(t *testing.T) {
-// 		companyWithCorrectType := &Company{
-// 			ID:             "431A5349-5277-4E34-A71B-CE764398A261",
-// 			Name:           "ACME Corp",
-// 			Description:    "Lorem Ipsum Dolor",
-// 			TotalEmployees: 100,
-// 			IsRegistered:   true,
-// 			Type:           CompanyType[0],
-// 		}
+	t.Run("test company type exist", func(t *testing.T) {
+		companyWithCorrectType := &Company{
+			ID:             "431A5349-5277-4E34-A71B-CE764398A261",
+			Name:           "ACME Corp",
+			Description:    "Lorem Ipsum Dolor",
+			TotalEmployees: 100,
+			IsRegistered:   true,
+			Type:           CompanyType[0],
+		}
 
-// 		err := companyWithCorrectType.ScanType()
-// 		assert.NoError(t, err)
-// 	})
-// 	t.Run("test company type does not exist", func(t *testing.T) {
-// 		companyWithInCorrectType := &Company{
-// 			ID:             "431A5349-5277-4E34-A71B-CE764398A261",
-// 			Name:           "ACME Corp",
-// 			Description:    "Lorem Ipsum Dolor",
-// 			TotalEmployees: 100,
-// 			IsRegistered:   true,
-// 			Type:           "Does Not Exist",
-// 		}
+		err := companyWithCorrectType.ScanType()
+		assert.NoError(t, err)
+	})
+	t.Run("test company type does not exist", func(t *testing.T) {
+		companyWithInCorrectType := &Company{
+			ID:             "431A5349-5277-4E34-A71B-CE764398A261",
+			Name:           "ACME Corp",
+			Description:    "Lorem Ipsum Dolor",
+			TotalEmployees: 100,
+			IsRegistered:   true,
+			Type:           "Does Not Exist",
+		}
 
-// 		err := companyWithInCorrectType.ScanType()
-// 		assert.ErrorIs(t, err, ErrTypeNotFound)
-// 	})
-// }
+		err := companyWithInCorrectType.ScanType()
+		assert.ErrorIs(t, err, ErrTypeNotFound)
+	})
+}

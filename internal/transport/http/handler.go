@@ -105,7 +105,7 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 	host, _ := os.Hostname()
 	t := time.Now()
 	json.NewEncoder(w).Encode(map[string]string{
-		"status":    "running!",
+		"status":    "ok!",
 		"podIp":     podIp,
 		"podName":   host,
 		"timestamp": t.Format("2006-01-02 15:04:05"),
